@@ -1,0 +1,19 @@
+{
+  "name": "arrangify",
+  "version": "0.0.1",
+  "description": "Your easy to use unpaid social event PA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arrangify/Arrangify.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arrangify/Arrangify/issues"
+  },
+  "homepage": "https://github.com/Arrangify/Arrangify#readme"
+}
