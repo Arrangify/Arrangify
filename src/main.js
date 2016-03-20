@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from './components/App.vue'
 import IntroView from './components/Intro.vue'
-import LoginView from './components/Login.vue'
 import MyAccount from './components/MyAccount.vue'
 import VueResource from 'vue-resource'
 import auth from './auth'
@@ -14,14 +13,14 @@ Vue.use(Router)
 auth.checkAuth()
 
 //  Router config
-export var router = new Router()
+var router = new Router()
+
+console.log(IntroView)
+console.log(MyAccount)
 
 router.map({
   '/intro': {
     component: IntroView
-  },
-  '/login': {
-    component: LoginView
   },
   '/my-account': {
     component: MyAccount
@@ -46,3 +45,5 @@ router.redirect({
 })
 
 router.start(App, '#app')
+
+export var routero = router

@@ -1,16 +1,15 @@
 <template>
-  Test
+  12312
+  <title-bar title="My Account"></title-bar>
+  asdas
 </template>
 
 <script>
   import auth from '../auth'
 
   export default {
-    data () {
-      return {
-        quote: ''
-      }
-    },
+
+    name: 'MyAccount',
     methods: {
 
     },
@@ -18,8 +17,15 @@
       // Check the users auth status before
       // allowing navigation to the route
       canActivate () {
-        return auth.user.authenticated
+        console.log(auth.user.authenticated)
+        return true
       }
+    },
+    components: {
+      'title-bar': require('./TitleBar.vue')
+    },
+    created () {
+      console.log(1)
     }
   }
 </script>
