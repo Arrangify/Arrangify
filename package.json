@@ -12,10 +12,13 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "auth0-lock": "^9.0.1",
     "babel-eslint": "^5.0.0",
     "bulma": "0.0.16",
+    "json-loader": "^0.5.4",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.2.0",
+    "transform-loader": "^0.2.3",
     "vue": "^1.0.17",
     "vue-resource": "^0.7.0",
     "vue-router": "^0.7.11"

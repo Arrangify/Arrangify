@@ -1,8 +1,8 @@
 <template>
-  <div class="login">
-    <input type="text" placeholder="Username" />
-    <input type="password" />
-    <input type="submit" value="Login" class="button button--action" />
+  <div class="intro intro--login">
+    <input class="input is-primary" type="text" placeholder="Username" />
+    <input class="input" type="password" />
+    <input type="submit" value="Login" class="button is-success" />
   </div>
 </template>
 
@@ -36,5 +36,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+  input {
+    margin-top: 10px;
+  }
 </style>

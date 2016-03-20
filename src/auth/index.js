@@ -1,9 +1,14 @@
 import {router} from '../main'
+var Auth0Lock = require('auth0-lock')
 
 // URL and endpoint constants
 const API_URL = 'http://localhost:3001/'
 const LOGIN_URL = API_URL + 'sessions/create/'
 const SIGNUP_URL = API_URL + 'users/'
+const CLIENT_ID = 'aTXYBsgnA1yrAUygOY138OilcGObKtCV'
+const CLIENT_DOMAIN = 'arrangify.eu.auth0.com'
+
+export var lock = new Auth0Lock(CLIENT_ID, CLIENT_DOMAIN)
 
 export default {
 

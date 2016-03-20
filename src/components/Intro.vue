@@ -1,11 +1,7 @@
 <template>
   <div class="intro">
-    <div class="intro__buttons">
-      <div class="button button--primary" v-link="{ path: '/login' }">Login</div>
-      <div class="button button--primary">Register</div>
-    </div>
     <div class="intro__action">
-      <div class="button button--action button--large">
+      <div class="button is-success is-large">
         Create Your Event
       </div>
     </div>
@@ -22,25 +18,28 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .intro {
     display: flex;
     flex: 1;
-    height: 100%;
-    flex-flow: wrap column;
-    padding: 10px;
-    &__buttons {
-      display: flex;
-      justify-content: flex-end;
-      .button {
-        margin-left: 1px;
-      }
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
     }
     &__action {
       display: flex;
       align-items: center;
       flex: 1;
       justify-content: center;
+      .button {
+        background: #2c3e50;
+      }
     }
   }
 </style>

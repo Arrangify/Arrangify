@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import App from './components/App.vue'
 import IntroView from './components/Intro.vue'
 import LoginView from './components/Login.vue'
+import MyAccount from './components/MyAccount.vue'
 import VueResource from 'vue-resource'
 import auth from './auth'
 
@@ -21,10 +22,21 @@ router.map({
   },
   '/login': {
     component: LoginView
+  },
+  '/my-account': {
+    component: MyAccount
   }
 })
 
-router.beforeEach(function () {
+router.beforeEach(function ({to, next}) {
+  if (to.path === '/my-account') {
+    if (!auth.user.authenticated) {
+      router.go('/intro')
+    }
+  }
+  if ((to.path === '/intro' || to.path === '/login') && auth.user.authenticated) {
+    router.go('/my-account')
+  }
   window.scrollTo(0, 0)
 })
 
