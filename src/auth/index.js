@@ -1,6 +1,6 @@
-import {router} from '../main'
 var Auth0Lock = require('auth0-lock')
-
+import {router} from '../main'
+console.log(router)
 // URL and endpoint constants
 const API_URL = 'http://localhost:3001/'
 const LOGIN_URL = API_URL + 'sessions/create/'
@@ -47,6 +47,7 @@ export default {
   logout () {
     localStorage.removeItem('id_token')
     this.user.authenticated = false
+    router.go('/intro')
   },
 
   checkAuth () {
@@ -55,6 +56,7 @@ export default {
       this.user.authenticated = true
     } else {
       this.user.authenticated = false
+      router.go('/intro')
     }
   },
 

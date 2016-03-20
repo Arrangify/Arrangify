@@ -4,19 +4,15 @@ import App from './components/App.vue'
 import IntroView from './components/Intro.vue'
 import MyAccount from './components/MyAccount.vue'
 import VueResource from 'vue-resource'
-import auth from './auth'
 
 Vue.use(VueResource)
 Vue.use(Router)
 
+//  Router config
+export var router = new Router()
+import auth from './auth'
 // Check the users auth status when the app starts
 auth.checkAuth()
-
-//  Router config
-var router = new Router()
-
-console.log(IntroView)
-console.log(MyAccount)
 
 router.map({
   '/intro': {
@@ -27,15 +23,17 @@ router.map({
   }
 })
 
-router.beforeEach(function ({to, next}) {
-  if (to.path === '/my-account') {
-    if (!auth.user.authenticated) {
-      router.go('/intro')
-    }
+router.beforeEach(function (tran) {
+  console.log('user is', auth.user.authenticated ? ' ' : ' not ', 'authenticated')
+  console.log('to is: ', tran.to.path)
+  if (tran.to.path === '/my-account' && !auth.user.authenticated) {
+    tran.redirect('/intro')
+  } else if ((tran.to.path === '/intro' || tran.path === '/login') && auth.user.authenticated) {
+    tran.redirect('/my-account')
+  } else {
+    tran.next()
   }
-  if ((to.path === '/intro' || to.path === '/login') && auth.user.authenticated) {
-    router.go('/my-account')
-  }
+
   window.scrollTo(0, 0)
 })
 
@@ -45,5 +43,3 @@ router.redirect({
 })
 
 router.start(App, '#app')
-
-export var routero = router

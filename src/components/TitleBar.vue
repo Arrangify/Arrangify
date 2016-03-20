@@ -1,10 +1,9 @@
 <template>
   <div class="title-bar">
     <div class="title-bar__title">
-      {{title}}
+      <h1>{{title}}</h1>
     </div>
   </div>
-  asdas
 </template>
 
 <script>

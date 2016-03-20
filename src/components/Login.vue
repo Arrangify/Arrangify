@@ -36,7 +36,4 @@
 </script>
 
 <style lang="scss" scoped>
-  input {
-    margin-top: 10px;
-  }
 </style>
